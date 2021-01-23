@@ -1,12 +1,11 @@
 import { GraphQLClient } from 'graphql-request'
 import { useQuery } from 'react-query'
-import { GQLRequest } from './types'
+import { GQLRequest, Queries } from './types'
 
-const GQL_SERVER_URL = 'http://localhost:3000'
+const GQL_SERVER_URL = 'http://localhost:4000'
 const defaultOpts: GQLRequest = { url: GQL_SERVER_URL }
-const defaultRequestOpts = { queryName: '' }
 
-function useGraphqlRequest({ url } = defaultOpts, Query = defaultRequestOpts) {
+function useGraphqlRequest({ url } = defaultOpts, Query: Queries) {
 	const fetchOpts = { mode: 'cors' }
 	const client = new GraphQLClient(url as string, fetchOpts as any)
 

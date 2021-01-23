@@ -1,12 +1,16 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { QueryOpts } from './types'
+import { QueryOpts, Queries } from './types'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { GraphqlContext } from './graphqlContext'
 import useGraphqlRequest from './useGraphqlRequest'
 
-function withGraphqlQueries(Wrap: React.FC, queries: {}, opts?: QueryOpts) {
+function withGraphqlQueries(
+	Wrap: React.FC,
+	queries: Queries,
+	opts?: QueryOpts
+) {
 	const queryClient = new QueryClient(opts?.query)
 	const customQuery = useGraphqlRequest(opts?.requests, queries)
 

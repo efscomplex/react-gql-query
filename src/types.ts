@@ -5,13 +5,13 @@ export interface QueryClientConfig {
 	mutationCache?: MutationCache
 	defaultOptions?: DefaultOptions
 }
-export type GQLRequest =
-	| {
-			url: string
-			[key: string]: any
-	  }
-	| undefined
-
+export type GQLRequest = {
+	url: string
+	[key: string]: any
+}
+export interface Queries {
+	[key: string]: string
+}
 export interface QueryOpts {
 	query?: QueryClientConfig
 	requests?: GQLRequest
